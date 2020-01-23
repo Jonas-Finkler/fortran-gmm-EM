@@ -50,13 +50,13 @@ call sampleGMM(dim, nGaussians, gmm, sample)
 
 The log PDF of the Gaussian mixture at coordinates `x` can be computed using:
 ```fortran
-logPDF = gmmLogPdf(dimension, nGaussians, gaussians, x) 
+logPDF = gmmLogPdf(dim, nGaussians, gaussians, x) 
 ```
 
 The code also contains subroutines to write and read Gaussian mixtures from disk:
 ```fortran
-call writeGMM('example-gmm.txt', dimension, nGaussians, gaussians)
-call readGMM('example-gmm.txt', dimension, nGaussians, gaussians)
+call writeGMM('example-gmm.txt', dim, nGaussians, gaussians)
+call readGMM('example-gmm.txt', dim, nGaussians, gaussians)
 ```
 
 
