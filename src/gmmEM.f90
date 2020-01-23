@@ -183,13 +183,11 @@ contains
             allocate(gaussians(i)%cholesky(dimension, dimension))
             gaussians(i)%weight = 1._dp / nGaussians
             gaussians(i)%covariance = 0._dp
-            gaussians(i)%precision = 0._dp
             do j = 1, dimension
                 gaussians(i)%mean(j) = random_normal() * initVar
                 gaussians(i)%covariance(j, j) = 1._dp
-                gaussians(i)%precision(j, j) = 1._dp
             end do
-            gaussians(i)%logDet = 0._dp
+            call gaussianFromCovariance(dimension, gaussians(i))
         end do
     end subroutine
 
@@ -206,12 +204,10 @@ contains
             allocate(gaussians(i)%cholesky(dimension, dimension))
             gaussians(i)%weight = 1._dp / nGaussians
             gaussians(i)%covariance = 0._dp
-            gaussians(i)%precision = 0._dp
             do j = 1, dimension
                 gaussians(i)%covariance(j, j) = 1._dp
-                gaussians(i)%precision(j, j) = 1._dp
             end do
-            gaussians(i)%logDet = 0._dp
+            call gaussianFromCovariance(dimension, gaussians(i))
         end do
     end subroutine
 
