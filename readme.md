@@ -2,13 +2,13 @@
 
 # fortran-gmm-EM
 
-This repository contains an extremely efficient implementation of the expectation-maximization (EM) algorithm (<https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm>) for Gaussian mixtures. 
+This repository contains an extremely efficient implementation of the [expectation-maximization (EM) algorithm] (https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm) for Gaussian mixtures. 
 BLAS is used wherever possible for maximum efficiency.
 The code is also parallelized using OpenMP. For maximum efficiency a parallel version of BLAS should be used, such as for example [OpenBLAS](https://www.openblas.net/) or intel MKL.
 
 ## Compiling the code
 
-To compile this code you need a fortran compiler as well as an installation of Blas/LAPACK. 
+To compile the example you need a fortran compiler as well as an installation of Blas/LAPACK. 
 Using CMake the code can be compiled with the following commands.
 Two CMake flags are provided, that allow to compile with or without OpenMP parallelization and with the intel or gnu compiler.
 
@@ -33,8 +33,9 @@ A Gaussian mixture can be fit with the following command:
 call fit(dim, nSamples, samples, nGaussians, gmmFit, eps)
 ```
 The arguments are the following:
+
 | Argument      | Description        | dimension  |
-| ------------- | ------------------ | ---------- |
+| ------------- | :----------------- | :--------- |
 | dim           | dimension of the data | scalar |
 | nSamples      | number of training samples | scalar |
 | samples       | training samples  | (dim, nSamples) | 
