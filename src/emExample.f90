@@ -33,7 +33,7 @@ program emExample
     ! use this routine to initialize the gaussian and allocate all the variables in the gaussian type
     call initUnitGaussians(dim, nGaussians, gmm)
 
-    ! now we creates some ranoom gaussians
+    ! now we creates some random gaussians
     do i=1,nGaussians
         gmm(i)%weight = 1._dp / nGaussians
         do j=1,dim
@@ -63,5 +63,9 @@ program emExample
             write(*,*) 'covariance ', sum((gmm(i)%covariance - gmmFit(j)%covariance)**2)
         end do
     end do
+
+    ! write the gmm result to a file
+    call writeGMM('gmm.out', dim, nGaussians, gmmFit)
+
 
 end program emExample

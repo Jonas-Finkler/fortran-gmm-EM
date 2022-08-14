@@ -304,18 +304,19 @@ contains
         character(len=*), intent(in) :: file
         integer, intent(in) :: nGaussians, dimension
         type(gaussian), intent(in) :: gaussians(nGaussians)
-        integer :: i,j
+        integer :: i, j, ounit
+        character(len=*), parameter :: fmt = '(*(ES24.17))'
 
-        open(45, file = file, action = "write")
-        write(45,*) nGaussians,dimension
+        open(newunit=ounit, file = file, action = "write")
+        write(ounit,*) nGaussians,dimension
         do i=1,nGaussians
-            write(45,*) gaussians(i)%weight
-            write(45,*) gaussians(i)%mean
+            write(ounit,fmt) gaussians(i)%weight
+            write(ounit,fmt) gaussians(i)%mean
             do j=1,dimension
-                write(45,*) gaussians(i)%covariance(:,j)
+                write(ounit,fmt) gaussians(i)%covariance(:,j)
             end do
         end do
-        close(45)
+        close(ounit)
     end subroutine writeGMM
 
     subroutine readGMM(file, dimension, nGaussians, gaussians)
