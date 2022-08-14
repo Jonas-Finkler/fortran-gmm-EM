@@ -2,7 +2,7 @@
 
 # fortran-gmm-EM
 
-This repository contains an extremely efficient implementation of the [expectation-maximization (EM) algorithm] (https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm) for Gaussian mixtures. 
+This repository contains an extremely efficient implementation of the [expectation-maximization (EM) algorithm](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm) for Gaussian mixtures. 
 BLAS is used wherever possible for maximum efficiency.
 The code is also parallelized using OpenMP. For maximum efficiency a parallel version of BLAS should be used, such as for example [OpenBLAS](https://www.openblas.net/) or intel MKL.
 
@@ -50,13 +50,13 @@ call sampleGMM(dim, nGaussians, gmm, sample)
 
 The log PDF of the Gaussian mixture at coordinates `x` can be computed using:
 ```fortran
-logPDF = gmmLogPdf(dimension, nGaussians, gaussians, x) 
+logPDF = gmmLogPdf(dim, nGaussians, gaussians, x) 
 ```
 
 The code also contains subroutines to write and read Gaussian mixtures from disk:
 ```fortran
-call writeGMM('example-gmm.txt', dimension, nGaussians, gaussians)
-call readGMM('example-gmm.txt', dimension, nGaussians, gaussians)
+call writeGMM('example-gmm.txt', dim, nGaussians, gaussians)
+call readGMM('example-gmm.txt', dim, nGaussians, gaussians)
 ```
 
 
