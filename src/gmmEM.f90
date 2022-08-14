@@ -305,10 +305,10 @@ contains
         integer, intent(in) :: nGaussians, dimension
         type(gaussian), intent(in) :: gaussians(nGaussians)
         integer :: i, j, ounit
-        character(len=*), parameter :: fmt = '(*(ES24.17))'
+        character(len=*), parameter :: fmt = '(*(ES24.17,1x))'
 
         open(newunit=ounit, file = file, action = "write")
-        write(ounit,*) nGaussians,dimension
+        write(ounit,'(*(i0,1x))') nGaussians,dimension
         do i=1,nGaussians
             write(ounit,fmt) gaussians(i)%weight
             write(ounit,fmt) gaussians(i)%mean
